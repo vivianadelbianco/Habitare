@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habitare — Método de Gestão de Instagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --lavender-light: #d2bee1;
+    --lavender-mid: #c3abd8;
+    --green-light: #d1e6ba;
+    --green-mid: #b4d69e;
+    --peach: #efcabd;
+    --cream: #f7f4ee;
+    --cream-dark: #ede9e0;
+    --brown: #8B6B3D;
+    --brown-dark: #6B4F2A;
+    --text-dark: #3a3228;
+    --text-mid: #6b5c4e;
+    --text-light: #9a8878;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ─── COVER ─── */
+  .cover {
+    min-height: 100vh;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--lavender-light) 0%, transparent 70%);
+    opacity: 0.5;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--green-light) 0%, transparent 70%);
+    opacity: 0.5;
+  }
+
+  .cover-badge {
+    background: var(--lavender-mid);
+    color: var(--brown-dark);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.15;
+    margin-bottom: 16px;
+    max-width: 680px;
+  }
+
+  .cover h1 span { color: var(--lavender-mid); }
+
+  .cover p {
+    font-size: 17px;
+    color: var(--text-mid);
+    max-width: 480px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .cover-divider {
+    width: 64px;
+    height: 2px;
+    background: linear-gradient(to right, var(--lavender-mid), var(--green-mid));
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+
+  .cover-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pill {
+    padding: 8px 20px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .pill-lavender { background: var(--lavender-light); color: var(--brown-dark); }
+  .pill-green { background: var(--green-light); color: #3a5a25; }
+  .pill-peach { background: var(--peach); color: #7a4535; }
+
+  /* ─── SECTIONS ─── */
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lavender-mid);
+    margin-bottom: 12px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--text-mid);
+    max-width: 620px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .divider-line {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--cream-dark), transparent);
+    margin: 0;
+  }
+
+  /* ─── OBJETIVO ─── */
+  .objetivo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 0;
+  }
+
+  .objetivo-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid var(--cream-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .objetivo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    right: 0;
+    height: 4px;
+  }
+
+  .objetivo-card.primary::before { background: var(--lavender-mid); }
+  .objetivo-card.secondary::before { background: var(--green-mid); }
+  .objetivo-card.tertiary::before { background: var(--peach); }
+
+  .objetivo-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--cream-dark);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .objetivo-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .objetivo-card p {
+    font-size: 13px;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ─── ENTREGÁVEIS ─── */
+  .entregaveis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+  }
+
+  .entregavel-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 24px 20px;
+    border: 1px solid var(--cream-dark);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .entregavel-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .icon-lavender { background: var(--lavender-light); }
+  .icon-green { background: var(--green-light); }
+  .icon-peach { background: var(--peach); }
+
+  .entregavel-info h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .entregavel-info p {
+    font-size: 12px;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .entregavel-tag {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 8px;
+    background: var(--cream);
+    color: var(--brown);
+  }
+
+  /* ─── CRONOGRAMA ─── */
+  .cronograma-wrapper {
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px solid var(--cream-dark);
+    overflow: hidden;
+  }
+
+  .crono-header {
+    background: var(--lavender-mid);
+    padding: 20px 32px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .crono-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--brown-dark);
+  }
+
+  .crono-header p {
+    font-size: 13px;
+    color: var(--brown);
+    font-weight: 300;
+  }
+
+  .crono-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .crono-table th {
+    background: var(--cream);
+    padding: 12px 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    text-align: left;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  .crono-table td {
+    padding: 16px 20px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--cream);
+    vertical-align: middle;
+  }
+
+  .crono-table tr:last-child td { border-bottom: none; }
+
+  .crono-table tr:hover td { background: #faf8f5; }
+
+  .crono-semana {
+    font-weight: 600;
+    color: var(--text-dark);
+    white-space: nowrap;
+  }
+
+  .crono-atividade { color: var(--text-mid); }
+
+  .crono-resp {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .resp-ong { background: var(--lavender-light); color: var(--brown-dark); }
+  .resp-cia { background: var(--green-light); color: #3a5a25; }
+  .resp-ambos { background: var(--peach); color: #7a4535; }
+
+  .crono-status {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+
+  .status-entrega { background: #e8f4e8; color: #3a7a3a; }
+  .status-aprovacao { background: #fef3e2; color: #8a5a0a; }
+  .status-publicacao { background: var(--lavender-light); color: var(--brown-dark); }
+  .status-reuniao { background: #f0e8f8; color: #6a3a8a; }
+
+  /* ─── MÉTODO / FLUXO ─── */
+  .fluxo-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .fluxo-step {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .fluxo-col-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fluxo-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .circle-1 { background: var(--lavender-mid); color: var(--brown-dark); }
+  .circle-2 { background: var(--green-mid); color: #2a4a1a; }
+  .circle-3 { background: var(--peach); color: #7a4535; }
+  .circle-4 { background: var(--lavender-light); color: var(--brown-dark); }
+  .circle-5 { background: var(--green-light); color: #3a5a25; }
+
+  .fluxo-line {
+    width: 2px;
+    flex: 1;
+    background: var(--cream-dark);
+    margin: 4px 0;
+  }
+
+  .fluxo-content {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 0 0 16px 16px;
+  }
+
+  .fluxo-content h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+  }
+
+  .fluxo-content p {
+    font-size: 13px;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .fluxo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .ftag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 8px;
+  }
+
+  .ftag-ong { background: var(--lavender-light); color: var(--brown-dark); }
+  .ftag-cia { background: var(--green-light); color: #3a5a25; }
+  .ftag-prazo { background: var(--cream-dark); color: var(--text-mid); }
+
+  /* ─── REGRA DE OURO ─── */
+  .regra-box {
+    background: var(--lavender-mid);
+    border-radius: 20px;
+    padding: 40px 44px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .regra-box::before {
+    content: '✦';
+    position: absolute;
+    top: 20px; left: 28px;
+    font-size: 40px;
+    color: var(--lavender-light);
+    opacity: 0.6;
+  }
+
+  .regra-box::after {
+    content: '✦';
+    position: absolute;
+    bottom: 20px; right: 28px;
+    font-size: 28px;
+    color: var(--lavender-light);
+    opacity: 0.4;
+  }
+
+  .regra-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 14px;
+  }
+
+  .regra-box p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 600;
+    color: var(--brown-dark);
+    line-height: 1.4;
+    max-width: 560px;
+    margin: 0 auto 16px;
+  }
+
+  .regra-box small {
+    font-size: 13px;
+    color: var(--brown);
+    font-weight: 300;
+  }
+
+  /* ─── RESPONSABILIDADES ─── */
+  .resp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .resp-grid { grid-template-columns: 1fr; }
+  }
+
+  .resp-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--cream-dark);
+  }
+
+  .resp-card-header {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .resp-card-header.ong { background: var(--lavender-mid); }
+  .resp-card-header.cia { background: var(--green-mid); }
+
+  .resp-card-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--brown-dark);
+  }
+
+  .resp-card-header p {
+    font-size: 12px;
+    color: var(--brown);
+    font-weight: 300;
+  }
+
+  .resp-card-body {
+    background: var(--white);
+    padding: 20px 24px;
+  }
+
+  .resp-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--cream);
+  }
+
+  .resp-item:last-child { border-bottom: none; }
+
+  .resp-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .dot-ong { background: var(--lavender-mid); }
+  .dot-cia { background: var(--green-mid); }
+
+  .resp-item-text {
+    font-size: 13px;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .resp-item-text strong {
+    font-weight: 500;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ─── PORTA-VOZ ─── */
+  .portavoz-box {
+    background: var(--white);
+    border-radius: 20px;
+    border: 2px solid var(--lavender-mid);
+    padding: 36px 40px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 600px) {
+    .portavoz-box { flex-direction: column; gap: 20px; }
+  }
+
+  .portavoz-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--lavender-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .portavoz-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
+  .portavoz-text p {
+    font-size: 14px;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+
+  .portavoz-text ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .portavoz-text li {
+    font-size: 13px;
+    color: var(--text-mid);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .portavoz-text li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--lavender-mid);
+    font-weight: 600;
+  }
+
+  /* ─── APROVAÇÃO ─── */
+  .aprovacao-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .aprovacao-card {
+    background: var(--white);
+    border-radius: 14px;
+    border: 1px solid var(--cream-dark);
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .aprovacao-card .emo {
+    font-size: 32px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .aprovacao-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .aprovacao-card p {
+    font-size: 12px;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .aprovacao-highlight {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  /* ─── ALERTA ─── */
+  .alerta-box {
+    background: #fff8f3;
+    border-left: 4px solid var(--peach);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin-top: 32px;
+  }
+
+  .alerta-box h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #7a4535;
+    margin-bottom: 6px;
+  }
+
+  .alerta-box p {
+    font-size: 13px;
+    color: #9a6555;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ─── INVESTIMENTO ─── */
+  .investimento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .investimento-grid { grid-template-columns: 1fr; }
+  }
+
+  .invest-card {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--cream-dark);
+    overflow: hidden;
+  }
+
+  .invest-card.featured {
+    border: 2px solid var(--lavender-mid);
+  }
+
+  .invest-card-header {
+    padding: 20px 24px;
+    background: var(--cream);
+  }
+
+  .invest-card.featured .invest-card-header {
+    background: var(--lavender-mid);
+  }
+
+  .invest-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .invest-card.featured .invest-badge {
+    color: var(--brown-dark);
+  }
+
+  .invest-card-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .invest-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--brown-dark);
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .invest-price span {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-light);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .invest-card-body {
+    padding: 20px 24px;
+  }
+
+  .invest-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--cream);
+    font-size: 13px;
+    color: var(--text-mid);
+  }
+
+  .invest-item:last-child { border-bottom: none; }
+
+  .invest-item::before {
+    content: '✓';
+    font-weight: 700;
+    color: var(--green-mid);
+    flex-shrink: 0;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--text-dark);
+    padding: 64px 40px;
+    text-align: center;
+  }
+
+  .footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .footer p {
+    font-size: 15px;
+    color: #a09080;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .footer-contacts {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-item h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  .contact-item p {
+    font-size: 13px;
+    color: #a09080;
+    margin-bottom: 0;
+  }
+
+  .footer-divider {
+    width: 48px;
+    height: 1px;
+    background: #5a4a3a;
+    margin: 40px auto 0;
+  }
+
+  .footer-logo {
+    margin-top: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: #5a4a3a;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ─── PAGE BREAK ─── */
+  .page-break {
+    background: var(--cream-dark);
+    height: 1px;
+    margin: 0;
+  }
+
+  /* ─── NÚMERO DESTAQUE ─── */
+  .num-destaque {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-light);
+    color: #3a5a25;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 24px;
+    margin-bottom: 32px;
+  }
+
+  /* ─── PRAZO ALERTA ─── */
+  .prazo-strip {
+    background: var(--peach);
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .prazo-strip p {
+    font-size: 13px;
+    color: #7a4535;
+    font-weight: 400;
+  }
+
+  .prazo-strip strong {
+    font-weight: 600;
+    color: var(--brown-dark);
+  }
+
+  /* Utilities */
+  .mt-8 { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+  .mt-32 { margin-top: 32px; }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════ CAPA ══════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-badge">Kickoff · Gestão Instagram</div>
+  <h1>Como vamos trabalhar <span>juntas</span></h1>
+  <p>Método de planejamento, criação e aprovação de conteúdo para a Rede Habitare.</p>
+  <div class="cover-divider"></div>
+  <div class="cover-pills">
+    <span class="pill pill-lavender">📱 Instagram · Proposta 1</span>
+    <span class="pill pill-green">📅 5 posts + 2 stories/semana</span>
+    <span class="pill pill-peach">💜 R$ 500/mês</span>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ══════════════════════════════════════ OBJETIVO ══════════════════════════════════════ -->
+<section class="section">
+  <span class="section-tag">Por que estamos aqui</span>
+  <h2>Objetivos do Instagram</h2>
+  <p class="section-intro">Com uma estratégia bem definida, o Instagram da Habitare terá um propósito claro — e cada post vai contribuir para algo real.</p>
+
+  <div class="objetivo-grid">
+    <div class="objetivo-card primary">
+      <div class="objetivo-num">01</div>
+      <h3>Divulgar os cursos</h3>
+      <p>A prioridade número 1. Cada ciclo de conteúdo terá ao menos uma ação dedicada à divulgação e inscrições nos cursos oferecidos.</p>
+    </div>
+    <div class="objetivo-card secondary">
+      <div class="objetivo-num">02</div>
+      <h3>Fortalecer a presença digital</h3>
+      <p>Consolidar a Habitare como referência em saúde mental perinatal, com conteúdo educativo e acolhedor para gestantes e puérperas.</p>
+    </div>
+    <div class="objetivo-card tertiary">
+      <div class="objetivo-num">03</div>
+      <h3>Construir comunidade</h3>
+      <p>Engajar o público com stories, perguntas e interações que gerem conexão real com a missão da ONG.</p>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ══════════════════════════════════════ ENTREGÁVEIS ══════════════════════════════════════ -->
+<section class="section">
+  <span class="section-tag">O que entregamos todo mês</span>
+  <h2>Entregáveis inclusos</h2>
+  <p class="section-intro">Proposta 1 · R$ 500/mês — tudo isso já está dentro do valor combinado.</p>
+
+  <div class="entregaveis-grid">
+    <div class="entregavel-card">
+      <div class="entregavel-icon icon-lavender">🖼</div>
+      <div class="entregavel-info">
+        <h3>5 posts no feed</h3>
+        <p>Artes criadas com a identidade visual da Habitare, incluindo divulgação de cursos, dicas e conteúdo educativo.</p>
+        <span class="entregavel-tag">mensal</span>
+      </div>
+    </div>
+
+    <div class="entregavel-card">
+      <div class="entregavel-icon icon-green">📱</div>
+      <div class="entregavel-info">
+        <h3>2 stories por semana</h3>
+        <p>Frase semanal, enquete ou dica rápida — para manter o perfil ativo e engajado entre os posts do feed.</p>
+        <span class="entregavel-tag">semanal</span>
+      </div>
+    </div>
+
+    <div class="entregavel-card">
+      <div class="entregavel-icon icon-peach">📅</div>
+      <div class="entregavel-info">
+        <h3>Calendário editorial</h3>
+        <p>Planejamento completo no Google Drive com pautas, datas e responsáveis — visível e acessível por todas.</p>
+        <span class="entregavel-tag">mensal</span>
+      </div>
+    </div>
+
+    <div class="entregavel-card">
+      <div class="entregavel-icon icon-lavender">📊</div>
+      <div class="entregavel-info">
+        <h3>Relatório mensal</h3>
+        <p>Métricas de alcance, engajamento e crescimento — para acompanhar os resultados e ajustar a estratégia.</p>
+        <span class="entregavel-tag">mensal</span>
+      </div>
+    </div>
+
+    <div class="entregavel-card">
+      <div class="entregavel-icon icon-green">🎓</div>
+      <div class="entregavel-info">
+        <h3>Divulgação de cursos</h3>
+        <p>Artes e copies específicos para divulgar os cursos da Habitare — com call-to-action claro para inscrições.</p>
+        <span class="entregavel-tag">por demanda</span>
+      </div>
+    </div>
+
+    <div class="entregavel-card">
+      <div class="entregavel-icon icon-peach">🤝</div>
+      <div class="entregavel-info">
+        <h3>Reunião mensal</h3>
+        <p>Encontro de alinhamento para definir pautas, aprovar o calendário e planejar os conteúdos do próximo mês.</p>
+        <span class="entregavel-tag">mensal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ══════════════════════════════════════ MÉTODO ══════════════════════════════════════ -->
+<section class="section">
+  <span class="section-tag">Como o processo funciona</span>
+  <h2>O método de trabalho</h2>
+  <p class="section-intro">Um fluxo simples, em 5 etapas, que garante que nenhuma post saia sem aprovação — e sem fazer o projeto durar 10 meses. 😉</p>
+
+  <div class="fluxo-wrapper">
+
+    <div class="fluxo-step">
+      <div class="fluxo-col-left">
+        <div class="fluxo-circle circle-1">1</div>
+        <div class="fluxo-line"></div>
+      </div>
+      <div class="fluxo-content">
+        <h3>Reunião de pauta (1x por mês)</h3>
+        <p>A CIA Digital apresenta as sugestões de temas com base no calendário e nas metas. A Habitare valida, ajusta e aprova as pautas do mês inteiro nessa única reunião.</p>
+        <div class="fluxo-tags">
+          <span class="ftag ftag-ong">🟣 Habitare: aprovar pautas</span>
+          <span class="ftag ftag-cia">🟢 CIA: apresentar calendário</span>
+          <span class="ftag ftag-prazo">⏱ 1h de reunião</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fluxo-step">
+      <div class="fluxo-col-left">
+        <div class="fluxo-circle circle-2">2</div>
+        <div class="fluxo-line"></div>
+      </div>
+      <div class="fluxo-content">
+        <h3>Criação das peças</h3>
+        <p>Com as pautas aprovadas, a CIA Digital cria as artes, textos e copies. Todo o material é organizado no Google Drive da Habitare antes de ir para aprovação.</p>
+        <div class="fluxo-tags">
+          <span class="ftag ftag-cia">🟢 CIA: criar e organizar peças</span>
+          <span class="ftag ftag-prazo">⏱ até dia 20 de cada mês</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fluxo-step">
+      <div class="fluxo-col-left">
+        <div class="fluxo-circle circle-3">3</div>
+        <div class="fluxo-line"></div>
+      </div>
+      <div class="fluxo-content">
+        <h3>Aprovação — 1 pessoa, 48 horas</h3>
+        <p>A porta-voz designada pela Habitare revisa todos os materiais e dá o OK (ou pede ajuste) em até 48 horas úteis. Sem aprovação no prazo = peça aprovada automaticamente.</p>
+        <div class="fluxo-tags">
+          <span class="ftag ftag-ong">🟣 Habitare: 1 porta-voz revisa</span>
+          <span class="ftag ftag-prazo">⏱ 48h úteis para retorno</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fluxo-step">
+      <div class="fluxo-col-left">
+        <div class="fluxo-circle circle-4">4</div>
+        <div class="fluxo-line"></div>
+      </div>
+      <div class="fluxo-content">
+        <h3>Ajustes (se houver)</h3>
+        <p>Máximo de 1 rodada de ajustes por peça. Mudanças de direcionamento após a aprovação das pautas serão tratadas como nova demanda.</p>
+        <div class="fluxo-tags">
+          <span class="ftag ftag-cia">🟢 CIA: aplica ajustes</span>
+          <span class="ftag ftag-prazo">⏱ máx. 1 rodada</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fluxo-step">
+      <div class="fluxo-col-left">
+        <div class="fluxo-circle circle-5">5</div>
+      </div>
+      <div class="fluxo-content">
+        <h3>Agendamento e publicação</h3>
+        <p>A CIA Digital agenda e publica todas as peças nos horários estratégicos. A Habitare não precisa fazer nada — só acompanhar os resultados.</p>
+        <div class="fluxo-tags">
+          <span class="ftag ftag-cia">🟢 CIA: agendar e publicar</span>
+          <span class="ftag ftag-ong">🟣 Habitare: acompanhar métricas</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ══════════════════════════════════════ CRONOGRAMA ══════════════════════════════════════ -->
+<section class="section">
+  <span class="section-tag">Organização do mês</span>
+  <h2>Cronograma mensal</h2>
+  <p class="section-intro">O mês de trabalho funciona em ciclos previsíveis. Todo mundo sabe o que acontece em cada semana.</p>
+
+  <div class="cronograma-wrapper">
+    <div class="crono-header">
+      <div>
+        <h3>📅 Ciclo mensal padrão</h3>
+        <p>Repete todo mês — sem surpresas, sem correria de última hora</p>
+      </div>
+    </div>
+    <table class="crono-table">
+      <thead>
+        <tr>
+          <th>Quando</th>
+          <th>O que acontece</th>
+          <th>Quem</th>
+          <th>Tipo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="crono-semana">Dia 1–3</td>
+          <td class="crono-atividade">Reunião de pauta — definição dos temas e calendário do mês</td>
+          <td><span class="crono-resp resp-ambos">🔄 Ambos</span></td>
+          <td><span class="crono-status status-reuniao">Reunião</span></td>
+        </tr>
+        <tr>
+          <td class="crono-semana">Dia 4–18</td>
+          <td class="crono-atividade">CIA cria artes, copies e organiza tudo no Google Drive</td>
+          <td><span class="crono-resp resp-cia">🟢 CIA Digital</span></td>
+          <td><span class="crono-status status-entrega">Criação</span></td>
+        </tr>
+        <tr>
+          <td class="crono-semana">Dia 19–21</td>
+          <td class="crono-atividade">Porta-voz da Habitare revisa e aprova todos os materiais</td>
+          <td><span class="crono-resp resp-ong">🟣 Habitare</span></td>
+          <td><span class="crono-status status-aprovacao">Aprovação</span></td>
+        </tr>
+        <tr>
+          <td class="crono-semana">Dia 22–23</td>
+          <td class="crono-atividade">CIA aplica ajustes finais (se houver) e agenda as publicações</td>
+          <td><span class="crono-resp resp-cia">🟢 CIA Digital</span></td>
+          <td><span class="crono-status status-entrega">Ajustes</span></td>
+        </tr>
+        <tr>
+          <td class="crono-semana">Dia 24–30</td>
+          <td class="crono-atividade">Posts publicados nos horários certos · Stories 2x/semana</td>
+          <td><span class="crono-resp resp-cia">🟢 CIA Digital</span></td>
+          <td><span class="crono-status status-publicacao">Publicação</span></td>
+        </tr>
+        <tr>
+          <td class="crono-semana">Último dia</td>
+          <td class="crono-atividade">Envio do relatório de métricas do mês + prévia do próximo mês</td>
+          <td><span class="crono-resp resp-cia">🟢 CIA Digital</span></td>
+          <td><span class="crono-status status-entrega">Relatório</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prazo-strip mt-24">
+    <span style="font-size:20px">⚠️</span>
+    <p><strong>Regra do prazo:</strong> Se a porta-voz não retornar o feedback em 48 horas úteis após receber as peças, a publicação segue conforme planejado. Isso garante que o calendário nunca fique travado.</p>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ══════════════════════════════════════ PORTA-VOZ ══════════════════════════════════════ -->
+<section class="section">
+  <span class="section-tag">A regra mais importante</span>
+  <h2>Uma voz. Uma decisão.</h2>
+  <p class="section-intro">Este é o ponto que vai determinar se tudo vai bem ou vai virar 10 meses de projeto.</p>
+
+  <div class="portavoz-box">
+    <div class="portavoz-icon">🎙</div>
+    <div class="portavoz-text">
+      <h3>A figura da Porta-Voz</h3>
+      <p>A Habitare precisa indicar <strong>uma única pessoa</strong> responsável pela comunicação com a CIA Digital. Ela representa todas as 10+ integrantes e tem autonomia para aprovar, pedir ajustes e tomar decisões sem precisar de votação interna.</p>
+      <ul>
+        <li>Centraliza feedbacks de toda a equipe antes de responder</li>
+        <li>Tem poder de decisão final sobre aprovação de conteúdo</li>
+        <li>Responde em até 48 horas úteis após receber as peças</li>
+        <li>Em casos de ausência, indica uma substituta com antecedência</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alerta-box">
+    <h4>Por que isso é inegociável?</h4>
+    <p>Quando múltiplas pessoas podem dar feedback simultâneo, surgem contradições, retrabalhos e paralisia por consenso. Foi exatamente isso que travou o site por 10 meses. Com uma porta-voz, o processo fica protegido — e o conteúdo sai no prazo, todo mês.</p>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ══════════════════════════════════════ RESPONSABILIDADES ══════════════════════════════════════ -->
+<section class="section">
+  <span class="section-tag">Quem faz o quê</span>
+  <h2>Divisão de responsabilidades</h2>
+  <p class="section-intro">Sem zona cinzenta. Cada parte sabe exatamente o que precisa entregar.</p>
+
+  <div class="resp-grid">
+    <div class="resp-card">
+      <div class="resp-card-header ong">
+        <div>
+          <h3>🟣 Rede Habitare</h3>
+          <p>ONG · cliente</p>
+        </div>
+      </div>
+      <div class="resp-card-body">
+        <div class="resp-item">
+          <div class="resp-dot dot-ong"></div>
+          <div class="resp-item-text">
+            <strong>Indicar a porta-voz</strong>
+            Uma integrante com poder de decisão sobre aprovações.
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-dot dot-ong"></div>
+          <div class="resp-item-text">
+            <strong>Participar da reunião mensal</strong>
+            Ao menos 2 representantes para validar as pautas.
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-dot dot-ong"></div>
+          <div class="resp-item-text">
+            <strong>Fornecer conteúdo bruto</strong>
+            Textos, informações sobre cursos, fotos (quando houver) até o dia 3.
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-dot dot-ong"></div>
+          <div class="resp-item-text">
+            <strong>Retornar aprovação em 48h</strong>
+            A porta-voz responde dentro do prazo — sem isso, o calendário trava.
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-dot dot-ong"></div>
+          <div class="resp-item-text">
+            <strong>Conceder acesso ao Instagram</strong>
+            Permissão de administradora para a CIA Digital publicar e monitorar.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="resp-card">
+      <div class="resp-card-header cia">
+        <div>
+          <h3>🟢 CIA Digital</h3>
+          <p>Agência · prestadora de serviço</p>
+        </div>
+      </div>
+      <div class="resp-card-body">
+        <div class="resp-item">
+          <div class="resp-dot dot-cia"></div>
+          <div class="resp-item-text">
+            <strong>Criar o calendário editorial</strong>
+            Pautas, temas e datas organizadas no Google Drive até o dia 3.
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-dot dot-cia"></div>
+          <div class="resp-item-text">
+            <strong>Produzir todas as peças</strong>
+            Artes, copies e stories com a identidade visual da Habitare.
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-dot dot-cia"></div>
+          <div class="resp-item-text">
+            <strong>Agendar e publicar</strong>
+            Todos os posts no horário estratégico — sem depender da ONG.
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-dot dot-cia"></div>
+          <div class="resp-item-text">
+            <strong>Monitorar métricas</strong>
+            Alcance, engajamento e crescimento — ajustando a estratégia.
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-dot dot-cia"></div>
+          <div class="resp-item-text">
+            <strong>Enviar relatório mensal</strong>
+            Resultados + recomendações para o próximo ciclo.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ══════════════════════════════════════ APROVAÇÃO ══════════════════════════════════════ -->
+<section class="section">
+  <span class="section-tag">Como funciona na prática</span>
+  <h2>O processo de aprovação</h2>
+  <p class="section-intro">Simples, rápido, sem grupo de WhatsApp virando campo de batalha.</p>
+
+  <div class="aprovacao-grid">
+    <div class="aprovacao-card">
+      <span class="emo">📁</span>
+      <h3>CIA organiza no Drive</h3>
+      <p>Todas as peças, artes e copies ficam em uma pasta compartilhada no Google Drive — organizadas, nomeadas e prontas para revisão.</p>
+    </div>
+    <div class="aprovacao-card">
+      <span class="emo">💬</span>
+      <h3>Aviso via WhatsApp</h3>
+      <p>A CIA manda mensagem direto para a porta-voz avisando que as peças estão disponíveis para revisão, com link para a pasta.</p>
+      <span class="aprovacao-highlight" style="background: var(--green-light); color: #3a5a25;">Comunicação direta</span>
+    </div>
+    <div class="aprovacao-card">
+      <span class="emo">✅</span>
+      <h3>Porta-voz aprova</h3>
+      <p>A porta-voz revisa, coleta feedbacks internos se quiser, e responde com um único OK ou lista de ajustes — em até 48h úteis.</p>
+    </div>
+    <div class="aprovacao-card">
+      <span class="emo">⏰</span>
+      <h3>Sem resposta = aprovado</h3>
+      <p>Se a porta-voz não retornar dentro de 48 horas úteis, as peças são consideradas aprovadas e o agendamento segue.</p>
+      <span class="aprovacao-highlight" style="background: var(--peach); color: #7a4535;">Regra acordada no contrato</span>
+    </div>
+  </div>
+
+  <div class="regra-box mt-32">
+    <h3>Princípio orientador</h3>
+    <p>"O conteúdo aprovado hoje é melhor do que o conteúdo perfeito que nunca sai."</p>
+    <small>A consistência de publicação constrói mais resultado do que a busca pelo post ideal.</small>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ══════════════════════════════════════ INVESTIMENTO ══════════════════════════════════════ -->
+<section class="section">
+  <span class="section-tag">Investimento</span>
+  <h2>Plano escolhido</h2>
+  <p class="section-intro">Proposta 1 — valor simbólico para apoiar a missão da Habitare como ONG.</p>
+
+  <div class="investimento-grid">
+    <div class="invest-card featured">
+      <div class="invest-card-header">
+        <span class="invest-badge">✦ Plano escolhido</span>
+        <h3>Proposta 1 · Instagram</h3>
+        <div class="invest-price">R$ 500 <span>/ mês</span></div>
+      </div>
+      <div class="invest-card-body">
+        <div class="invest-item">5 posts no feed por mês</div>
+        <div class="invest-item">2 stories por semana (8/mês)</div>
+        <div class="invest-item">Calendário editorial no Google Drive</div>
+        <div class="invest-item">Design com identidade visual</div>
+        <div class="invest-item">Planejamento e agendamento</div>
+        <div class="invest-item">Relatório mensal de métricas</div>
+        <div class="invest-item">Reunião mensal de alinhamento</div>
+        <div class="invest-item">Divulgação de cursos inclusa</div>
+      </div>
+    </div>
+
+    <div class="invest-card">
+      <div class="invest-card-header">
+        <span class="invest-badge">Upgrade disponível</span>
+        <h3>Proposta 2 · Expansão</h3>
+        <div class="invest-price">R$ 750 <span>/ mês</span></div>
+      </div>
+      <div class="invest-card-body">
+        <div class="invest-item">8 posts no feed por mês</div>
+        <div class="invest-item">4 stories por semana (16/mês)</div>
+        <div class="invest-item">Tudo da Proposta 1</div>
+        <div class="invest-item">1 post de blog no site por mês</div>
+        <div class="invest-item">Maior volume de divulgação de cursos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alerta-box mt-32">
+    <h4>O que não está incluso</h4>
+    <p>Criação de fotos ou vídeos originais (sessão fotográfica, gravação etc.) não faz parte desta proposta. Utilizamos bancos de imagem gratuitos. Caso a Habitare precise de material exclusivo, será orçado separadamente.</p>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ══════════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+<footer class="footer">
+  <h2>Vamos começar?</h2>
+  <p>Qualquer dúvida antes do kickoff, é só chamar.</p>
+
+  <div class="footer-contacts">
+    <div class="contact-item">
+      <h4>Viviana Del Bianco</h4>
+      <p>(12) 99654-2587</p>
+      <p>vivianadelbianco@gmail.com</p>
+    </div>
+    <div class="contact-item">
+      <h4>Julia Del Bianco</h4>
+      <p>(12) 99666-9947</p>
+      <p>juliadelelbiancoattie@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+  <div class="footer-logo">CIA Digital × Rede Habitare · 2025</div>
+</footer>
+
+</body>
+</html>
