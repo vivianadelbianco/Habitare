@@ -1,146 +1,226 @@
-# Playbook de Direção de Arte — Instagram Rede Habitare
+# Playbook Instagram — Rede Habitare
 
-> **Documento operacional para designers e agentes de conteúdo.**
-> Toda peça visual criada para o Instagram da Rede Habitare deve seguir rigorosamente as diretrizes abaixo.
-
----
-
-## 1. Essência Visual da Marca
-
-A Habitare comunica **cuidado psicológico com base científica**, de forma acolhedora, respeitosa, não romantizada e sem julgamento.
-
-> *"Informar sem julgar. Acolher sem infantilizar. Fortalecer sem romantizar."*
+> Leitura obrigatória para o Squad de Conteúdo Mensal antes de qualquer produção.
+> Este arquivo define formatos, pilares, direção visual e regras operacionais do Instagram da Habitare.
 
 ---
 
-## 2. Os 4 Pilares Narrativos e Suas Cores
+## Perfil
 
-Cada pilar tem uma cor dominante para facilitar a identificação visual no feed.
-
-| # | Pilar | Cor dominante | Hex | Objetivo |
-|---|---|---|---|---|
-| 1 | **Cursos & Formação** | Lilás | `#cca2db` | Vender cursos, atrair profissionais |
-| 2 | **Educação & Saber** | Verde | `#a5d998` | Informar, construir autoridade |
-| 3 | **Acolhimento** | Rosa | `#f7bbc0` | Gerar conexão emocional, engajamento |
-| 4 | **Habitare por dentro** | Off-white neutro | `#f8f7f2` | Humanizar a instituição, gerar confiança |
-
-**Regra principal: 1 post = 1 cor dominante.**
-
----
-
-## 3. Tipografia
-
-| Fonte | Função | Regra |
-|---|---|---|
-| **Lora** (serifada) | Títulos e headlines | Transmite emoção e presença |
-| **Raleway** (sans-serif) | Textos de corpo e legendas | Transmite clareza e leitura |
-
-> **Nunca inverter as funções.**
-
----
-
-## 4. Composição
-
-| Regra | Valor |
+| Campo | Valor |
 |---|---|
-| Respiro visual (espaço em branco) | **60–70%** da área do slide |
-| Quantidade de elementos | Poucos — menos é mais |
-| Hierarquia | Clara — o olho deve saber para onde ir primeiro |
-| Ideias por slide (carrossel) | **1 ideia por slide** |
+| Handle | @rede.habitare |
+| URL | https://www.instagram.com/rede.habitare/ |
+| Canal | Principal — prioridade absoluta |
+| Público primário | Gestantes e puérperas em situação de vulnerabilidade |
+| Público secundário | Profissionais de saúde mental, estudantes de psicologia, parceiros institucionais |
 
 ---
 
-## 5. Formatos de Post
+## Frequência e Calendário Fixo
 
-### Distribuição sugerida no feed
-
-| Formato | Proporção | Pilar mais adequado |
-|---|---|---|
-| Minimalista | 45% | Educação & Saber / Cursos & Formação |
-| Ilustração | 35% | Acolhimento |
-| Foto | 20% | Habitare por dentro / Cursos |
-
-### Posts Minimalistas
-- Fundo pastel (cor dominante conforme o pilar)
-- Headline forte e curta
-- No máximo 2 elementos visuais além do texto
-- Leitura rápida — a pessoa deve entender em 3 segundos
-
-### Posts com Ilustração
-- Estilo orgânico: aquarela, traço suave, textura manual
-- Imperfeição intencional (nada hiper-realista ou vetorial frio)
-- Tons suaves alinhados à paleta
-
-### Posts com Foto
-- Evitar banco de imagens clichê
-- Buscar: diversidade, imperfeição, cotidiano real, fotos da equipe e dos cursos
-- Edição leve, baixa saturação, tons suaves
-
----
-
-## 6. Reels
-
-**Capa:** Padrão minimalista — título direto, cor de fundo conforme o pilar.
-**Conteúdo:**
-- Fala de especialista (psicóloga, psicanalista)
-- Texto na tela acompanhando os pontos principais
-- Micro storytelling em até 60 segundos (começo, meio e fim)
-
----
-
-## 7. Stories
-
-### Tipos fixos (recorrentes)
-
-| Tipo | Pilar | Frequência sugerida |
-|---|---|---|
-| Lembretes de inscrições/vagas | Cursos & Formação | 2–3x por semana |
-| Caixa de pergunta psicoeducativa | Educação & Saber | 1–2x por semana |
-| Frases curtas de validação | Acolhimento | Diário |
-| Bastidores (equipe, preparação) | Habitare por dentro | 1–2x por semana |
-
----
-
-## 8. Ritmo do Feed
-
-**Regra de ouro: nunca repetir o mesmo formato em sequência.**
-
-### Exemplo de sequência ideal
-
-| Posição | Pilar | Cor | Formato |
+| Formato | Dias | Horário | Frequência |
 |---|---|---|---|
-| 1 | Cursos & Formação | Lilás | Minimalista (Carrossel) |
-| 2 | Acolhimento | Rosa | Ilustração (Post único) |
-| 3 | Educação & Saber | Verde | Minimalista (Post único) |
-| 4 | Habitare por dentro | Neutro/Foto | Foto real da equipe |
-| 5 | Educação & Saber | Verde | Minimalista (Carrossel) |
-| 6 | Acolhimento | Rosa | Ilustração com frase |
+| Post no feed | Terça e Quinta | 18h | 2x/semana (~8/mês) |
+| Story | Quarta e Sábado | 12h (Qua) / 10h (Sáb) | 2x/semana (~8/mês) |
+
+**Regra:** Assim que as artes são aprovadas, entram automaticamente no calendário nesses dias e horários. Alterações pontuais (datas comemorativas, lançamento de curso urgente) devem ser combinadas com a porta-voz com antecedência mínima de 5 dias úteis.
 
 ---
 
-## 9. O Que Nunca Fazer
+## Formatos e Especificações Técnicas
+
+### Feed
+
+| Especificação | Valor |
+|---|---|
+| **Dimensão** | **1080 × 1440 px (proporção 4:5)** |
+| Resolução | 72 dpi (tela) |
+| Formato de arquivo | JPG ou PNG |
+| Tamanho máximo | 8 MB |
+
+> **Atenção:** O formato do feed é sempre 1080 × 1440 px. Nunca usar 1080 × 1080 (quadrado) nem 1080 × 1350 para posts de feed. O 4:5 ocupa mais espaço no feed e aumenta a visibilidade.
+
+### Carrossel
+
+| Especificação | Valor |
+|---|---|
+| Dimensão | 1080 × 1440 px (4:5) — todas as lâminas |
+| Número de lâminas | Mínimo 3, máximo 10 |
+| Primeira lâmina | Capa com gancho claro — deve funcionar sozinha |
+| Última lâmina | Sempre finalizar com CTA ou convite à interação |
+
+### Stories
+
+| Especificação | Valor |
+|---|---|
+| Dimensão | 1080 × 1920 px (proporção 9:16) |
+| Resolução | 72 dpi |
+| Formato de arquivo | JPG, PNG ou MP4 |
+| Área segura | Respeitar margem de 250 px no topo e 400 px na base (evitar sobreposição de elementos do Instagram) |
+
+### Reels *(quando produzidos)*
+
+| Especificação | Valor |
+|---|---|
+| Dimensão | 1080 × 1920 px (9:16) |
+| Duração ideal | 15–30 segundos |
+| Capa | Sempre definir uma capa estática com título visível |
+
+---
+
+## Hashtags
+
+**Limite por post: até 5 hashtags.**
+
+> O Instagram restringe o alcance orgânico de posts com excesso de hashtags. O limite definido para a Habitare é de **no máximo 5 hashtags por publicação**, priorizando relevância sobre volume.
+
+### Banco de Hashtags por Pilar
+
+**Educação & Saber**
+`#saudemental` · `#saudementalmaterna` · `#psicologiaperinatal` · `#puerpério` · `#maternidade`
+
+**Acolhimento**
+`#maternidade` · `#puerpério` · `#saudementalmaterna` · `#vocenouestasos` · `#apoiomaterno`
+
+**Divulgação de Cursos**
+`#cursodepsicologia` · `#formacaoempsicologia` · `#saudementalperinatal` · `#psicologiaperinatal` · `#redehabitare`
+
+**Habitare por dentro**
+`#redehabitare` · `#ong` · `#saudementalmaterna` · `#psicologiaperinatal` · `#maternidade`
+
+**Comunidade & Interação**
+`#redehabitare` · `#maternidade` · `#puerpério` · `#saudementalmaterna` · `#gestante`
+
+> Regra: sempre incluir `#redehabitare` em posts de identidade e divulgação. Nunca repetir mais de 2 hashtags idênticas entre posts da mesma semana.
+
+---
+
+## Pilares Editoriais
+
+O conteúdo do Instagram da Habitare se organiza em 5 pilares. Cada post deve ser classificado em um deles antes da produção.
+
+### 1. Educação & Saber 🟣
+Conteúdo psicoeducativo sobre maternidade, parentalidade, puerpério e saúde mental. Explicações acessíveis de conceitos da psicanálise. Dados, curiosidades, "Você sabia?".
+
+- **Objetivo:** Construir autoridade e posicionamento como referência técnica
+- **Tom:** Informativo, acessível, sem ser condescendente
+- **Formatos preferidos:** Carrossel, post único com dado ou conceito
+- **Frequência sugerida:** 2x/mês no feed
+
+### 2. Acolhimento 🌿
+Frases reflexivas, validação emocional, conteúdo que faz a mãe se sentir vista e compreendida. "Não é só você." Linguagem próxima e humana.
+
+- **Objetivo:** Gerar conexão emocional e engajamento
+- **Tom:** Suave, empático, sem romantizar a dificuldade
+- **Formatos preferidos:** Post único com frase, carrossel curto
+- **Frequência sugerida:** 2x/mês no feed + stories de sábado
+
+### 3. Divulgação de Cursos & Formação 📣
+Chamadas para inscrições, apresentação de cursos, destaques de conteúdo programático, informações sobre datas e valores. **Pilar de prioridade máxima.**
+
+- **Objetivo:** Gerar inscrições e receita para a ONG
+- **Tom:** Direto, motivador, com CTA claro
+- **Formatos preferidos:** Post único, carrossel, story com link
+- **Frequência sugerida:** 2x/mês no feed + stories de quarta (CTA)
+- **Regra:** Todo mês deve ter ao menos uma ação dedicada à divulgação de curso
+
+### 4. Habitare por dentro 🏡
+Apresentação da equipe, bastidores, valores da ONG, como funciona o atendimento, o que é a rede, conquistas e marcos institucionais.
+
+- **Objetivo:** Humanizar a instituição e construir confiança
+- **Tom:** Transparente, orgulhoso, humano
+- **Formatos preferidos:** Post com foto real da equipe, carrossel institucional
+- **Frequência sugerida:** 1x/mês no feed
+
+### 5. Comunidade & Interação 💬
+Caixas de perguntas, enquetes, "me conta uma coisa", estímulo à participação e escuta ativa do público.
+
+- **Objetivo:** Engajar a comunidade, aumentar alcance e coletar insights sobre o público
+- **Tom:** Próximo, curioso, sem julgamento
+- **Formatos preferidos:** Stories interativos (enquete, pergunta, quiz)
+- **Frequência sugerida:** Stories de quarta e/ou sábado
+
+### Distribuição semanal sugerida
+
+| Dia | Formato | Pilar preferencial |
+|---|---|---|
+| Terça | Post feed | Educação & Saber ou Divulgação de Cursos |
+| Quarta | Story | Comunidade & Interação ou CTA de Curso |
+| Quinta | Post feed | Acolhimento ou Habitare por dentro |
+| Sábado | Story | Acolhimento ou Comunidade & Interação |
+
+---
+
+## Direção Visual
+
+Seguir integralmente as diretrizes do `08-design-brief.md`. Resumo aplicado ao Instagram:
+
+### Tipografia
+| Uso | Fonte |
+|---|---|
+| Títulos e frases de destaque | Lora (serifada) |
+| Textos, legendas dentro da arte, CTAs | Raleway (sans-serif) |
+
+### Cores
+Usar sempre a paleta oficial. Priorizar fundos em off-white (`#f8f7f2`), lilás pálido (`#dccde7`) ou verde pálido (`#d7edd2`). Textos em cinza chumbo (`#5b5955`) ou marrom terroso (`#915210`).
+
+### Imagens e Fotografias
+- Preferir fotos reais da equipe e dos cursos quando disponíveis
+- Banco de imagens: buscar diversidade, cotidiano real, imperfeição — nunca mãe sorrindo perfeitamente com bebê de propaganda
+- Edição leve: baixa saturação, tons alinhados à paleta, sem filtros artificiais
+
+### Layout
+- 60–70% de espaço em branco
+- Poucos elementos por peça — hierarquia clara
+- Nunca sobrecarregar a arte com texto longo
+- Elementos orgânicos e suaves; evitar formas geométricas rígidas
+
+---
+
+## Legenda (Copy)
+
+### Estrutura recomendada
+1. **Gancho** — primeira linha deve parar o scroll (pergunta, dado, afirmação forte)
+2. **Desenvolvimento** — 2 a 4 linhas de corpo, leves, sem jargão excessivo
+3. **CTA** — finalizar sempre com convite: salvar, comentar, compartilhar ou acessar link na bio
+4. **Hashtags** — no final, até 5 (ver banco acima)
+
+### Tom de voz na legenda
+- Primeira pessoa do plural quando fala pela ONG ("na Habitare, acreditamos…")
+- Segunda pessoa quando fala com a mãe ("você não precisa dar conta de tudo sozinha")
+- Acessível — evitar termos clínicos sem explicação
+- Nunca tom de alerta ou medo; sempre de acolhimento e possibilidade
+
+---
+
+## O Que Nunca Fazer
 
 | Proibido | Motivo |
 |---|---|
-| Estética de sofrimento | Não reforçamos dor; oferecemos caminho |
-| Visual infantilizado | Mulheres adultas merecem comunicação adulta |
-| Excesso de informação | Mata a leitura e o engajamento |
-| Design genérico de ONG | A Habitare tem identidade própria |
-| Romantização da maternidade | Contra o DNA da marca |
-| Cores vibrantes ou neon | Fora da paleta |
-| Fontes decorativas aleatórias | Apenas Lora e Raleway |
+| Mais de 5 hashtags por post | Penaliza o alcance orgânico |
+| Usar formato diferente de 1080 × 1440 px no feed | Quebra a consistência visual do grid |
+| Romantizar a maternidade | Contra o DNA da marca |
+| Estética de sofrimento ou dor excessiva | A Habitare oferece caminho, não amplifica a dor |
+| Fontes fora do padrão (Lora / Raleway) | Quebra a identidade visual |
+| Cores vibrantes ou neon | Fora da paleta oficial |
+| Arte com excesso de texto | Dificulta leitura e reduz engajamento |
+| Post sem CTA | Todo conteúdo deve convidar a alguma ação |
+| Visual infantilizado | O público são mulheres adultas |
 
 ---
 
-## 10. Checklist de Validação (antes de publicar)
+## Fluxo de Aprovação
 
-- [ ] O post se encaixa claramente em um dos 4 pilares?
-- [ ] A cor dominante corresponde ao pilar escolhido?
-- [ ] A tipografia segue a regra (Lora = título, Raleway = corpo)?
-- [ ] Há pelo menos 60% de respiro visual?
-- [ ] O formato não repete o post anterior no feed?
-- [ ] O conteúdo não romantiza, infantiliza ou julga?
-- [ ] A peça tem no máximo 1 ideia central por slide?
+Todo conteúdo passa pelo seguinte fluxo antes de ser publicado:
+
+1. Cia Digital cria as peças e organiza no Google Drive
+2. Porta-voz da Habitare recebe aviso via WhatsApp e revisa em até 48h úteis
+3. Se houver ajustes, Cia Digital aplica e devolve para aprovação final em 24h úteis
+4. Sem retorno no prazo = peças aprovadas automaticamente
+
+> Ver detalhes completos em `13-cronograma.md`.
 
 ---
-> Atualizado em: abril/2026 — via.digital para Rede Habitare
+
+> Atualizado em: abril/2026 — via.digital
